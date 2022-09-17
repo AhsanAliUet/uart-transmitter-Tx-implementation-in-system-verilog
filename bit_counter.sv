@@ -10,7 +10,7 @@ module bit_counter #(
 
 logic [15:0] counter_value = 0;
 
-always_ff @ (posedge clk_i, posedge rst_i, clear) begin
+always_ff @ (posedge clk_i, posedge rst_i, posedge clear) begin
    if (rst_i || clear) begin
       counter_value <= 16'b0;
       counter_of_o <= 0;
