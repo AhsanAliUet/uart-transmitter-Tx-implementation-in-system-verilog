@@ -34,6 +34,7 @@ uart_tx i_uart_tx(
 
       #30; byte_ready_i = 1;
       #30; t_byte_i = 1;
+      #10; data_i = 8'b11110000;
    end
 
    initial begin
