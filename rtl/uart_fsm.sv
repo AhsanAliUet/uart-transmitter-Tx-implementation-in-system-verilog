@@ -1,6 +1,4 @@
-
 //This module implements the FSM of UART
-
 module uart_fsm
 (
    input  logic clk_i,
@@ -8,8 +6,7 @@ module uart_fsm
 
    input  logic byte_ready_i,
    input  logic t_byte_i,
-   // input  logic [31:0] counter,
-   // input  logic [31:0] counter_baud,
+
    input  logic counter_of_i,
    input  logic counter_baud_of_i,
 
@@ -20,7 +17,6 @@ module uart_fsm
    output logic load_xmt_dreg_o,
    output logic load_xmt_shfreg_o
 );
-
    parameter S0 = 2'b00;
    parameter S1 = 2'b01;
    parameter S2 = 2'b10;
@@ -96,23 +92,11 @@ always_comb begin
             start_o = 1;
             shift_o = 1;
          end 
-         // else if (!counter && !counter_baud) begin
-         //    next_state = S2;
-         //    clear_baud_o = 0;
-         //    clear_o = 0;
-         //    load_xmt_dreg_o = 0;
-         //    load_xmt_shfreg_o = 0;
-         //    start_o = 1;
-         //    shift_o = 0;
-         // end 
          else if (counter_of_i && counter_baud_of_i) begin
             next_state = S0;
          end
       end
    endcase
 end
-
-
-
 endmodule
 

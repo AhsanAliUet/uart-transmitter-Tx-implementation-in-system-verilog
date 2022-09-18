@@ -1,7 +1,6 @@
 module bit_counter #(
    parameter BITS_TO_COUNT = 9
 )(
-
    input  logic           clk_i,
    input  logic           rst_i,
    input  logic           clear,
@@ -9,7 +8,6 @@ module bit_counter #(
 );
 
 logic [15:0] counter_value = 0;
-
 always_ff @ (posedge clk_i, posedge rst_i, posedge clear) begin
    if (rst_i || clear) begin
       counter_value <= 16'b0;
@@ -20,6 +18,4 @@ always_ff @ (posedge clk_i, posedge rst_i, posedge clear) begin
       counter_value <= counter_value + 1;
    end
 end
-
-
 endmodule
